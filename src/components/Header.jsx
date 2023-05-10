@@ -1,4 +1,4 @@
-import disneyLogo from "../assets/Images/disney_logo.png"
+import disneyLogo from "../assets/Images/disney_logo.png" 
 const Header = () => {
   return (
     <header>
@@ -10,7 +10,7 @@ const Header = () => {
             <li><a href="">Cast</a> </li>
             <li><a href="">Plot</a> </li>
             <li><a href="">Disney Club</a> </li>
-            <li><a href="">Create Account</a> </li>
+            <li><a href="" className="btn btn-primary">Create Account</a> </li>
         </ul>
         </nav>
     </header>

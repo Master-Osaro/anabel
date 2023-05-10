@@ -1,1 +1,139 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+@font-face {
+    font-family: "Franie";
+    src: url(./assets/Font/Web/WOFF/Franie-Regular.woff);
+}
+
+@font-face {
+    font-family: "Satoshi";
+    src: url(./assets/Font/SatoshiFonts/WEB/fonts/Satoshi-Regular.woff);
+}
+
+:root{
+    --base-body-color: #100D1B;
+    --text-color: #FFFFFF;
+    --btn-primary-purple-gradient: linear-gradient(to right,#4523B0,#6E8EFF);
+}
+
+body{
+    background-color: var(--base-body-color);
+    font-family: "Satoshi", sans-serif;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+body::after {
+    content: "";
+    background: url(./assets/Images/night-skys.jpg);
+    background-size: cover;
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
+
+
+
+#root{
+    width: 100%;
+    max-width: 1200px;
+}
+.btn{
+    padding: 1rem 1rem;
+    border-radius: 1.5rem;
+}
+.btn-primary{
+    background: var(--btn-primary-purple-gradient) ;
+}
+/*Header Section*/
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-bottom: 6.25rem;
+}
+
+.nav-list ul{
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+.nav-list a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/*Main Section*/
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.movie__name{
+    position: relative;
+}
+.movie__name-text{
+    font-size: 200px;
+    display: flex;
+    justify-content: center;
+    font-family: "Franie", sans-serif;
+    font-weight: 300;
+}
+.movie__name-text{
+    position: relative;
+    z-index: 4;
+}
+
+.movie__name__magic{
+    position: absolute;
+    top: -5.8rem;
+    right: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.circle_shadow{
+    background: rgba(0, 0, 0, 0.9);
+    width: 2.7rem;
+    height: 1.45rem;
+    border-radius: 50%;
+    filter: blur(4px);
+    transform: translateY(-4.5rem);
+    box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.5) ;
+    position: relative;
+    z-index: 4;
+}
+
+.movie__media-video,.movie__media-photo{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.movie__media-photo{
+    
+    transform: translateY(-4rem);
+    z-index: 5;
+}
+
+.movie__media-video{
+    border-radius: 300px 300px 10px 10px;
+    height: 550px;
+    object-fit: cover;
+    display: none;
+}
