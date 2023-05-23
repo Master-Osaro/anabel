@@ -48,6 +48,7 @@ body::after {
 #root{
     width: 100%;
     max-width: 1200px;
+
 }
 .btn{
     padding: 1rem 1rem;
@@ -112,6 +113,20 @@ main{
     align-items: center;
 }
 
+.tilted,
+.undo-tilt,
+.brush__icon,
+.brush__move_right,
+.plot,
+.plot::after{
+    transition: all .3s;
+}
+.tilted{
+    transform: rotate(10deg);
+}
+.undo-tilt{
+    transform: rotate(0deg);
+}
 
 .circle_shadow{
     background: rgba(0, 0, 0, 0.9);
@@ -158,4 +173,96 @@ main{
 }
 .movie__media-video .video-container video{
     width: 100%;
+}
+
+.plot{
+    max-width: 400px;
+    position: absolute;
+    top: -48%;
+    right: -50%;
+    padding: 2rem 1.25rem;
+    z-index: 6;
+}
+/* Using after pseudo class so the contained text won't be frosted */
+.plot::after{
+    position: absolute;
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Pinkish tint FF8C9D */
+    box-shadow: 2px -120px 500px 20px rgba(99, 88, 139, 0.4) ;
+    background: linear-gradient(to right, rgba(108, 89, 163, 0.7), rgba(255, 255, 255, 0.2)) ;
+    border-radius: 12px;
+    z-index: -1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.shadow.plot::after {
+    box-shadow: 2px -120px 500px 20px rgba(99, 88, 139, 0.8) ;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+    .plot::after{ 
+        filter: blur(1px);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+}
+
+.plot p{
+    line-height: 1.85rem;
+}
+.plot p:not(:last-child){
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.play__controls{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.play__icon, .play__controls p {
+    cursor: pointer;
+    /* cursor: url(./assets/GIFS/brush.gif), url(./assets/GIFS/brush.png), pointer; */
+
+}
+.play__icon{
+    height: 56px;
+    width: 56px;
+    background: url(./assets/Images/play_btn.png);
+    border: none;
+}
+
+.brush__icon{
+    position: absolute;
+    left: 20%;
+    bottom: -20%;
+    opacity: 1;
+}
+.brush__move_right{
+    transform: translateX(2rem);
+    opacity: 0;
+}
+
+.btn-magic-eye {
+    position: fixed;
+    bottom: 4rem;
+    right: 3rem;
+    padding: 3px 15px;
+    border: 4px;
+    font-size: 30px;
+    display: flex;
+    place-items: center;
+    height: 72px;
+    width: 72px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+    z-index: 900;
 }
